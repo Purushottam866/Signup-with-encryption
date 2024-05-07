@@ -13,4 +13,6 @@ public interface UserRepository extends JpaRepository<UserDto, Integer>
 	UserDto findByVerificationToken(String token);
 	List<UserDto> findByEmailOrMobile(String email, long mobile);
 	
+	UserDto findTopByOrderByIdDesc();
+	
 }

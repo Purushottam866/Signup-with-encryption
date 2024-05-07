@@ -35,8 +35,16 @@ public class UserDao
 	}
 
 	public UserDto findByVerificationToken(String token) {
-		return findByVerificationToken(token);
+		return userRepository.findByVerificationToken(token);
 	}
+	
+	 public String findLastUserId() {
+	        UserDto latestUser = userRepository.findTopByOrderByIdDesc();
+	        if (latestUser != null) {
+	            return latestUser.getUserId();
+	        }
+		 return null;
+	 }
 	
 	
 }
